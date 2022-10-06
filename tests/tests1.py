@@ -4,7 +4,7 @@ import os
 bucket_name = 'bucketname'
 prefix = 'prefix'
 obj = LocalObjectCache(bucket_name, prefix)
-filename__ = filename
+filename__ = 'filename'
 key = os.path.join(obj.prefix, filename__)
 tag = tag_value
 def test_with_params():
