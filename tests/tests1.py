@@ -1,10 +1,12 @@
 from syncs3 import LocalObjectCache
 import os
 
-obj = LocalObjectCache('sentientx', 'EOD/')
-__filename__ = 'feather_512.fth'
-key = os.path.join(obj.prefix, __filename__)
-tag = "'hello'"
+bucket_name = 'bucketname'
+prefix = 'prefix'
+obj = LocalObjectCache(bucket_name, prefix)
+filename__ = filename
+key = os.path.join(obj.prefix, filename__)
+tag = tag_value
 def test_with_params():
     try:
         assert obj.download_obj(key, tag) == key, tag
