@@ -14,6 +14,13 @@ Give this as a convinience bundle for involving distant resources in journals.
 
 **Language:** Python 3.8.2
 
+## Developing syncs3
+To install syncs3, along with the tools ypu need to develop and run tests, run the following in ypur virtualenv:
+
+```bash
+$ pip install -e .[dev]
+```
+
 ## Usage/Examples
 
 ### Example 1: Upload object on aws
