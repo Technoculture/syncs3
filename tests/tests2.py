@@ -1,11 +1,11 @@
 from syncs3 import LocalObjectCache
 import os
 
-bucket_name = bucket_name
-prefix = prefix_name
+bucket_name = 'bucket_name'
+prefix = 'prefix_name'
 obj = LocalObjectCache(bucket_name, prefix)
 
-filename__ = file_name
+filename__ = 'file_name'
 key = os.path.abspath(filename__)
 
 def test_with_params():
