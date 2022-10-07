@@ -28,7 +28,7 @@ $ pip install -e .[dev]
 '''Create object of the LocalObjectCache to initialize the bucket name and prefix.'''
 bucket_name = bucket_name
 prefix = prefix_name
-obj = LocalObjectCache(bucket_name, prefix)
+obj = syncs3(bucket_name, prefix)
 
 '''uploading a obj.'''
 __filename__ = file_name
