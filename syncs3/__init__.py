@@ -1,1 +1,1 @@
-from syncs3 import LocalObjectCache
+from syncs3 import syncs3

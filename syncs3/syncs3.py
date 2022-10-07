@@ -8,10 +8,12 @@ import hashlib
 import logging
 from pathlib import Path
 from functools import wraps
-log = logging.getLogger()
-log.setLevel(logging.INFO)
 
-class LocalObjectCache:
+from syncs3 import syncs3
+log = logging.getLogger(__name__)
+
+
+class syncs3:
     """Provides a local cache of an S3 bucket on disk, with the ability to sync up to the latest version of all files"""
     _DEFAULT_PATH = '/tmp/local_object_store/'
     counter = 0
@@ -83,15 +85,15 @@ class LocalObjectCache:
         try:
             f = open(path, 'rb')
             if tag == self.calculate_s3_etag(f):
-                logging.info('Cache Hit')
+                log.info('Cache Hit')
                 dl_flag = False
             f.close()
         except FileNotFoundError as e:
             pass
 
         if dl_flag:
-            LocalObjectCache.counter +=1 
-            logging.info('Cache Miss, file is downloading.')
+            syncs3.counter +=1 
+            log.info('Cache Miss')
             self.bucket.download_file(key, path)
     
     def _set_obj(self, key, path=None):
@@ -113,7 +115,7 @@ class LocalObjectCache:
             pass
 
         if dl_flag:
-            log.info('Cache Miss, File is Uploading.')
+            log.info('Cache Miss')
             self.bucket.upload_file(key, self.prefix+Path(key).name)
             return self.calculate_s3_etag(open(key, 'rb'))
 
